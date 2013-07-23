@@ -1,0 +1,16 @@
+{
+  "sources": {
+    "devbox": {
+      "path": "."
+    },
+    "apt": {
+      "locked_version": "2.0.0"
+    },
+    "ssh_known_hosts": {
+      "locked_version": "1.0.0"
+    },
+    "partial_search": {
+      "locked_version": "1.0.2"
+    }
+  }
+}
