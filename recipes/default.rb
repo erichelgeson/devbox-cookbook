@@ -22,6 +22,15 @@ execute "git-config" do
 	command 'git config --global user.email "erichelgeson@gmail.com"; git config --global user.name "Eric Helgeson"; git config --global color.ui true; git config --global core.editor vi'
 end
 
+execute "copy-local-ssh-to-vagrant" do
+  user "vagrant"
+  environment (
+    'HOME' => '/home/vagrant'
+  )
+  command 'cp -r /vagrant/dotssh /home/vagrant/.ssh && chmod 600 /home/vagrant/.ssh/*'
+  not_if { File.exists?("/home/vagrant/.ssh") }
+end
+
 ssh_known_hosts_entry 'github.com'
 
 # Ruby 1.9
