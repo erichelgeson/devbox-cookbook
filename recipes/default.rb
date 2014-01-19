@@ -24,8 +24,8 @@ end
 
 execute "copy-local-ssh-to-vagrant" do
   user "vagrant"
-  environment (
-    'HOME' => '/home/vagrant'
+  environment(
+      'HOME' => '/home/vagrant'
   )
   command 'cp -r /vagrant/dotssh /home/vagrant/.ssh && chmod 600 /home/vagrant/.ssh/*'
   not_if { File.exists?("/home/vagrant/.ssh") }
