@@ -27,8 +27,8 @@ execute "copy-local-ssh-to-vagrant" do
   environment(
       'HOME' => '/home/vagrant'
   )
-  command 'cp -r /vagrant/dotssh /home/vagrant/.ssh && chmod 600 /home/vagrant/.ssh/*'
-  not_if { File.exists?("/home/vagrant/.ssh") }
+  command 'cp -r /vagrant/dotssh/* /home/vagrant/.ssh && chmod 600 /home/vagrant/.ssh/*'
+  not_if { File.exists?("/home/vagrant/.ssh/id_rsa") }
 end
 
 ssh_known_hosts_entry 'github.com'
