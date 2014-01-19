@@ -34,12 +34,18 @@ end
 ssh_known_hosts_entry 'github.com'
 
 # Ruby 1.9
+template "/home/vagrant/.gemrc" do
+  source "dotgemrc.erb"
+  owner  "vagrant"
+  group  "vagrant"
+end
+
 # Ubuntu 12.04 acutally install 1.9.3 with 1.9.1, weird!
 %w{ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 libopenssl-ruby1.9.1 libssl-dev zlib1g-dev libxslt-dev libxml2-dev}.each do |pkg|
 	package pkg
 end
 # Ruby gems
-%w{jekyll berkshelf maruku rdiscount}.each do |gem|
+%w{jekyll berkshelf maruku rdiscount rake sass bourbon}.each do |gem|
 	gem_package gem
 end
 
